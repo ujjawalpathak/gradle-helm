@@ -41,6 +41,7 @@ pipelines:
                 run_if: passed
             - exec:
                 arguments:
+                - -c
                 - sleep 300
                 command: /bin/bash
                 run_if: passed
