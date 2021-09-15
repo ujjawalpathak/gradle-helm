@@ -42,5 +42,5 @@ pipelines:
             - exec:
                 arguments:
                 - sleep 300
-                command: ./deployment.sh
+                command: /bin/bash
                 run_if: passed
