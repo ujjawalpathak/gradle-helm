@@ -1,1 +1,1 @@
-# grale-helm
+# gradle-helm
