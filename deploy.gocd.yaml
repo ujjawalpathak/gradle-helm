@@ -42,6 +42,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - helm install gradle-helm ./gradle-helm/. --set image=${GO_REVISION_GIT_LABEL_UPSTREAM}
+                - helm install gradle-helm ./gradle-helm/. --set image.tag=${GO_REVISION_GIT_LABEL_UPSTREAM}
                 command: /bin/bash
                 run_if: passed
