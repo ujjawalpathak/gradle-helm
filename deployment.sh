@@ -1,0 +1,1 @@
+helm install gradle-demo -f ./gradle-helm/values.yaml
