@@ -42,6 +42,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - helm install gradle-helm ./gradle-helm/. --set image.repository=${ARTIFACT_IMAGE}
+                - helm install gradle-helm ./gradle-helm/. --set image=${ARTIFACT_IMAGE}
                 command: /bin/bash
                 run_if: passed
