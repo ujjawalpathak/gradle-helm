@@ -1,1 +1,3 @@
-helm install gradle-demo -f ./gradle-helm/values.yaml
+#!/usr/bin/env bash
+sed -i "s~#{image}~$ARTIFACT_IMAGE~g" ./gradle-helm/values.yaml
+helm install gradle-demo ./gradle-helm/values.yaml
