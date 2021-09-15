@@ -42,6 +42,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - sleep 300
+                - helm install gradle-helm ./gradle-helm/. --set image.repository=${ARTIFACT_IMAGE}
                 command: /bin/bash
                 run_if: passed
