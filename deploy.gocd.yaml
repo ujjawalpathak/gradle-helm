@@ -6,11 +6,16 @@ pipelines:
     lock_behavior: unlockWhenFinished
     display_order: 1
     materials:
-      git:
+      upstream:
+        pipeline: gradle-demo-build
+        stage: gradle-demo-build
+        name: upstream_pipeline
+      SourceCodeRepo:
         git: https://github.com/ujjwalvns/gradle-helm.git
-        shallow_clone: true
+        shallow_clone: false
         auto_update: true
         branch: master
+        name: SourceCodeRepo
     stages:
     - gradle-demo-deploy:
         fetch_materials: true
@@ -20,13 +25,23 @@ pipelines:
           type: success
           allow_only_on_success: false
         jobs:
-          deploy_image:
+          deploy:
             timeout: 0
             elastic_profile_id: demo-app
             tasks:
+            - fetch:
+                options:
+                  EnvironmentVariablePrefix: ''
+                  SkipImagePulling: 'true'
+                artifact_id: dockerhub
+                pipeline: gradle-demo-build
+                stage: gradle-demo-build
+                job: build_project
+                artifact_origin: external
+                run_if: passed
             - exec:
                 arguments:
-                - -c
-                - helm install gradle-helm ./gradle-helm/.
-                command: /bin/sh
+                - c
+                - sleep 300
+                command: /bin/bash
                 run_if: passed
