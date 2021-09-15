@@ -27,6 +27,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - ./deployment.sh
+                - helm install ./gradle-helm/.
                 command: /bin/sh
                 run_if: passed
