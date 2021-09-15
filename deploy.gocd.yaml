@@ -30,16 +30,14 @@ pipelines:
             elastic_profile_id: demo-app
             tasks:
             - fetch:
-                options:
-                  EnvironmentVariablePrefix: ''
-                  SkipImagePulling: 'true'
                 pipeline: gradle-demo-build
                 stage: gradle-demo-build
                 job: build_project
+                source: build
                 run_if: passed
             - exec:
                 arguments:
                 - -c
-                - echo 'GO_FROM_REVISION_GIT' ${GO_REVISION_UPSTREAM}
+                - echo 'GO_FROM_REVISION_GIT' ${GO_FROM_REVISION_UPSTREAM}
                 command: /bin/bash
                 run_if: passed
