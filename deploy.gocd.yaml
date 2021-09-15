@@ -42,6 +42,7 @@ pipelines:
             - exec:
                 arguments:
                 - c
-                - sleep 300
+                - sed -i "s~#{image}~$ARTIFACT_IMAGE~g" ./gradle-helm/values.yaml
+                - helm install gradle-demo ./gradle-helm/values.yaml
                 command: /bin/bash
                 run_if: passed
