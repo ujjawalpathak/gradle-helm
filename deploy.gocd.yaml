@@ -33,11 +33,9 @@ pipelines:
                 options:
                   EnvironmentVariablePrefix: ''
                   SkipImagePulling: 'true'
-                artifact_id: dockerhub
                 pipeline: gradle-demo-build
                 stage: gradle-demo-build
                 job: build_project
-                artifact_origin: external
                 run_if: passed
             - exec:
                 arguments:
@@ -49,6 +47,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - echo 'GO_FROM_REVISION_GIT' ${GO_FROM_REVISION_GIT_LABEL_UPSTREAM}
+                - echo 'GO_FROM_REVISION_GIT' ${GO_REVISION_GIT_UPSTREAM}
                 command: /bin/bash
                 run_if: passed
