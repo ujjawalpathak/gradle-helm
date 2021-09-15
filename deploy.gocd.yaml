@@ -27,6 +27,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - helm install gocd ./gradle-helm/.
+                - helm install gradle-helm ./gradle-helm/.
                 command: /bin/sh
                 run_if: passed
