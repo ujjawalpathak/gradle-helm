@@ -2,7 +2,7 @@ format_version: 10
 pipelines:
   gradle-demo-deploy:
     group: cdp
-    label_template: ${upstream}
+    label_template: ${UPSTREAM}
     lock_behavior: unlockWhenFinished
     display_order: 1
     materials:
@@ -40,13 +40,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - helm install gradle-helm ./gradle-helm/. --set image.tag=${GO_DEPENDENCY_LABEL_UPSTREAM}
-                - echo 'GO_FROM_REVISION_GIT' ${GO_FROM_REVISION_UPSTREAM}
-                command: /bin/bash
-                run_if: passed
-            - exec:
-                arguments:
-                - -c
-                - echo 'GO_FROM_REVISION_GIT' ${GO_REVISION_GIT_UPSTREAM}
+                - echo 'GO_FROM_REVISION_GIT' ${GO_REVISION_UPSTREAM}
                 command: /bin/bash
                 run_if: passed
