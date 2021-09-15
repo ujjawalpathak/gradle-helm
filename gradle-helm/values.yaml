@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: ujjwalvns/gradle-service
+  repository: #{image}
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "7bce9b8150056a4bb69793c0ebc7b2a6001ef7b5"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
