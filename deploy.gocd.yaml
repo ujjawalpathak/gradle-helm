@@ -7,9 +7,9 @@ pipelines:
     display_order: 1
     materials:
       upstream:
-        pipeline: gradle-demo-build
-        stage: gradle-demo-build
-        name: upstream_pipeline
+        pipeline: gradle-build
+        stage: gradle-build
+        name: upstream_pipe
       SourceCodeRepo:
         git: https://github.com/ujjwalvns/gradle-helm.git
         shallow_clone: true
@@ -34,9 +34,9 @@ pipelines:
                   EnvironmentVariablePrefix: ''
                   SkipImagePulling: 'true'
                 artifact_id: dockerhub 
-                pipeline: gradle-demo-build
-                stage: gradle-demo-build
-                job: build_project
+                pipeline: gradle-build
+                stage: gradle-build
+                job: build
                 artifact_origin: external
                 run_if: passed
             - exec:
