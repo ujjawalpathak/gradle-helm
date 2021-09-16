@@ -33,10 +33,10 @@ pipelines:
                 options:
                   EnvironmentVariablePrefix: ''
                   SkipImagePulling: 'true'
-                artifact_id: bulletin-board
-                pipeline: build_and_publish_image/test_application
-                stage: build_and_publish_image
-                job: build_image
+                artifact_id: dockerhub 
+                pipeline: gradle-demo-build
+                stage: gradle-demo-build
+                job: build_project
                 artifact_origin: external
                 run_if: passed
             - exec:
