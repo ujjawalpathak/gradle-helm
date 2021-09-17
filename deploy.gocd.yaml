@@ -2,7 +2,7 @@ format_version: 10
 pipelines:
   gradle-deploy:
     group: cdp
-    label_template: ${UPSTREAM_PIPE}
+    label_template: ${COUNT}
     lock_behavior: unlockWhenFinished
     display_order: 1
     materials:
