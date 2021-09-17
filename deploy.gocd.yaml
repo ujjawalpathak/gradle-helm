@@ -43,7 +43,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - export GO_COMMIT_TAG=${ARTIFACT_IMAGE#*:}
+                - export GO_COMMIT_TAG=${ARTIFACT_IMAGE%*:}
                 command: /bin/bash
                 run_if: passed
             - exec:
