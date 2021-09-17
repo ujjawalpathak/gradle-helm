@@ -42,13 +42,5 @@ pipelines:
                 run_if: passed
             - exec:
                 arguments:
-                - -c
-                - export GO_COMMIT_TAG=${ARTIFACT_IMAGE%*:}
-                command: /bin/bash
-                run_if: passed
-            - exec:
-                arguments:
-                - -c
-                - echo 'GO_FROM_REVISION_GIT' ${GO_COMMIT_TAG}
-                command: /bin/bash
+                command: ./tag.sh
                 run_if: passed
