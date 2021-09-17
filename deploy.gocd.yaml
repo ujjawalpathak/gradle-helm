@@ -42,5 +42,7 @@ pipelines:
                 run_if: passed
             - exec:
                 arguments:
-                command: ./tag.sh
+                - -c
+                - sh tag.sh
+                command: /bin/bash
                 run_if: passed
