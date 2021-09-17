@@ -2,14 +2,14 @@ format_version: 10
 pipelines:
   gradle-deploy:
     group: cdp
-    label_template: ${COUNT}
+    label_template: ${UPSTREAMP}
     lock_behavior: unlockWhenFinished
     display_order: 1
     materials:
       upstream:
         pipeline: gradle-build
         stage: gradle-build
-        name: upstream_pipe
+        name: upstreamp
       SourceCodeRepo:
         git: https://github.com/ujjwalvns/gradle-helm.git
         shallow_clone: true
