@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  gradle-demo-deploy:
+  gradle-deploy:
     group: cdp
     label_template: ${UPSTREAM_PIPE}
     lock_behavior: unlockWhenFinished
@@ -17,7 +17,7 @@ pipelines:
         branch: master
         name: SourceCodeRepo
     stages:
-    - gradle-demo-deploy:
+    - gradle-deploy:
         fetch_materials: true
         keep_artifacts: true
         clean_workspace: false
