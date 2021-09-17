@@ -2,7 +2,7 @@ format_version: 10
 pipelines:
   gradle-demo-deploy:
     group: cdp
-    label_template: ${UPSTREAM}
+    label_template: ${UPSTREAM_PIPE}
     lock_behavior: unlockWhenFinished
     display_order: 1
     materials:
